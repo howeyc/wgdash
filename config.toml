@@ -1,0 +1,20 @@
+[[peer]]
+key = "PRrgEyL2H3FgkEP4rVqYilkV7gqxHSRAfoBfmS5gRV4="
+display = "Surface Pro 7"
+host = "surfacepro7.vpn.howey.me"
+
+[[peer]]
+key = "S+e3Z9ymlcLbBY8DwY2y8bQMe4lKOsVOykUuJR5upF8="
+display = "Raspberry Pi"
+host = "pi.vpn.howey.me"
+
+[[peer]]
+key = "QVRk9sxA8hirz7RQ5cBhhIHNhBqo6wPOdZLEYgobRzk="
+display = "Tablet"
+host = "tablet.vpn.howey.me"
+
+[[peer]]
+key = "t7jg+BcCaQDE9qmdgO2hrNrjH2jfeKil8jzqb6+4IjE="
+display = "Phone"
+host = "pixel-phone.vpn.howey.me"
+
