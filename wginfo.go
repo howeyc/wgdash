@@ -32,6 +32,9 @@ type WGInfo struct {
 	Peers      []WGPeer
 	CheckTime  time.Time
 
+	Displayname string
+	Hostname    string
+
 	IPs                    []string
 	TransferRx, TransferTx float64
 }

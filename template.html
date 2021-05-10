@@ -36,12 +36,12 @@
         <div class="col">
         <div class="card border-primary">
             <div class="card-header">
-                <a href="#" data-toggle="tooltip" title="{{.PublicKey}}">Hub</a>
+                <a href="#" data-toggle="tooltip" title="{{.PublicKey}}">{{.Displayname}}</a>
                 <br>
                 (:{{.ListenPort}})
             </div>
             <div class="card-body">
-                <h6 class="card-subtitle">hub.howey.me</h6>
+                <h6 class="card-subtitle">{{.Hostname}}</h6>
                 <ul class="list-group list-group-flush">
                 {{range $idx, $ip := .IPs }}
                 <li class="list-group-item">

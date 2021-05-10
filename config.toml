@@ -1,3 +1,8 @@
+[device]
+dev = "wg0"
+display = "Hub"
+host = "hub.howey.me"
+
 [[peer]]
 key = "PRrgEyL2H3FgkEP4rVqYilkV7gqxHSRAfoBfmS5gRV4="
 display = "Surface Pro 7"

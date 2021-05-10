@@ -15,6 +15,11 @@ import (
 var tmpfs string
 
 var config struct {
+	Device struct {
+		Dev     string `toml:"dev"`
+		Display string `toml:"display"`
+		Host    string `toml:"host"`
+	} `toml:"device"`
 	Peers []struct {
 		Key     string `toml:"key"`
 		Display string `toml:"display"`
@@ -23,11 +28,9 @@ var config struct {
 }
 
 func main() {
-	var wgdevname string
 	var tomlpath string
 	var outpath string
-	flag.StringVar(&wgdevname, "dev", "wg0", "wireguard device")
-	flag.StringVar(&tomlpath, "config", "", "dashboard config file")
+	flag.StringVar(&tomlpath, "config", "", "dashboard config file (*required)")
 	flag.StringVar(&outpath, "o", "", "output html file path")
 	flag.Parse()
 
@@ -42,14 +45,16 @@ func main() {
 		if terr != nil {
 			log.Fatalln(terr)
 		}
+	} else {
+		log.Fatalln("must specify config file")
 	}
 
-	wgdev, derr := GetDevInfo(wgdevname)
+	wgdev, derr := GetDevInfo(config.Device.Dev)
 	if derr != nil {
 		log.Fatalln(derr)
 	}
 
-	wginfo, wgerr := GetWGInfo(wgdevname)
+	wginfo, wgerr := GetWGInfo(config.Device.Dev)
 	if wgerr != nil {
 		log.Fatalln(wgerr)
 	}
@@ -81,6 +86,9 @@ func main() {
 		}
 	}
 	wg.Wait()
+
+	wginfo.Displayname = config.Device.Display
+	wginfo.Hostname = config.Device.Host
 
 	ofile, oerr := os.Create(outpath)
 	if oerr != nil {
