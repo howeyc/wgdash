@@ -45,11 +45,7 @@
                 <ul class="list-group list-group-flush">
                 {{range $idx, $ip := .IPs }}
                 <li class="list-group-item">
-                    {{if eq $idx 0}}
-                    IPv6: 
-                    {{else}}
-                    IPv4: 
-                    {{end}}
+                    IP: 
                     <span class="text-success">
                     {{$ip}}
                     </span>
@@ -79,11 +75,7 @@
                 <ul class="list-group list-group-flush">
                 {{range $idx, $ip := .AllowedIPs }}
                 <li class="list-group-item">
-                    {{if eq $idx 0}}
-                    IPv6: 
-                    {{else}}
-                    IPv4: 
-                    {{end}}
+                    IP: 
                     <span class="{{if index $peer.Online $idx}}text-success{{else}}text-danger{{end}}">
                     {{$ip}}
                     </span>
